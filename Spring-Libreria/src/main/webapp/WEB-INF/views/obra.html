@@ -121,8 +121,8 @@
 							      <td th:text="${bean.fecPubObr}"></td>
 							      <td th:text="${bean.tbTipoObra.nomTipo}"></td>
 							      <td th:text="${bean.tbAutor.nomAutr}"></td>
-							      <td><a th:href="@{buscarObra/(codMedi=${bean.codObr})}" class="btn btn-info btn-editar" data-toggle="modal" data-target="#modalObra"><i class="far fa-edit"></i></a></td>
-							      <td><a th:href="@{eliminarObra/(codMedi=${bean.codObr})}" class="btn btn-danger btn-eliminar"><i class="far fa-trash-alt"></i></a></td>
+							      <td><a th:href="@{buscarObra/(codObra=${bean.codObr})}" class="btn btn-info btn-editar" data-toggle="modal" data-target="#modalObra"><i class="far fa-edit"></i></a></td>
+							      <td><a th:href="@{eliminarObra/(codObra=${bean.codObr})}" class="btn btn-danger btn-eliminar"><i class="far fa-trash-alt"></i></a></td>
 							    </tr>  
 							  </tbody>
 				</table>
@@ -132,7 +132,7 @@
 			<!-- begin #modal-dialog : MODAL OBRA-->
 			<div class="modal fade" id="modalObra" data-backdrop="static" 
 							data-keyboard="false" tabindex="-1" 
-							aria-labelledby="exampleModalLabel" aria-hidden="true" style="width: 550px">
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered modal-login modal-lg" >					
 							<div class="modal-content">
 								<div class="modal-header bg-blue-darker">
@@ -257,17 +257,16 @@
 		var url=$(this).attr("href");
 		$.get(url,function(response){
 			console.log(response);
-			$("#idCodigo").val(response.codMed);
-			$("#idDescripcion").val(response.desMed);
-			$("#usr1").val(response.fecFabMed);
-			$("#idNombre").val(response.nomMed);
-			$("#idPrecio").val(response.preMed);
-			$("#idStock").val(response.stoMed);
-			//$("#idTipo").val(response.tbTipoMedicamento.codTipo);
-			$("#idlaboratorio").val(response.tbTipoMedicamento.laboratorio.codigoLaboratorio);
-			codigoTipo=response.tbTipoMedicamento.codTipo;
-			//invocar el evento change del select con ID "idlaboratorio"
-			$("#idlaboratorio").trigger("change");
+			$("#idCodigo").val(response.codObr);
+			$("#idDescripcion").val(response.desObr);
+			$("#usr1").val(response.fecPubObr);
+			$("#idNombre").val(response.nomObr);
+			$("#idPrecio").val(response.preObr);
+			$("#idStock").val(response.stoObr);
+			$("#idTipo").val(response.tbTipoObra.codTipo);
+			$("#idAutor").val(response.tbAutor.codAutr);
+		//	codigoTipo=response.tbTipoMedicamento.codTipo;
+	
 		})
 	})
 	
