@@ -21,20 +21,17 @@ USE `Projecto_Libreria`;
 -- Table structure for table `tb_boleta`
 --
 
-DROP TABLE IF EXISTS `tb_boleta`;
+DROP TABLE IF EXISTS `tb_pedido`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_boleta` (
-  `num_bol` int NOT NULL AUTO_INCREMENT,
-  `cod_cli` int DEFAULT NULL,
+CREATE TABLE `tb_pedido` (
+  `num_ped` int NOT NULL AUTO_INCREMENT,
   `cod_usu` int DEFAULT NULL,
-  `fec_emi_bol` date DEFAULT NULL,
-  `monto_bol` decimal(10,0) DEFAULT NULL,
-  PRIMARY KEY (`num_bol`),
+  `fec_emi_ped` date DEFAULT NULL,
+  `monto_ped` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`num_ped`),
   KEY `fk4` (`cod_usu`),
-  KEY `fk5` (`cod_cli`),
-  CONSTRAINT `fk4` FOREIGN KEY (`cod_usu`) REFERENCES `tb_usuario` (`cod_usu`),
-  CONSTRAINT `fk5` FOREIGN KEY (`cod_cli`) REFERENCES `tb_cliente` (`cod_cli`)
+  CONSTRAINT `fk4` FOREIGN KEY (`cod_usu`) REFERENCES `tb_usuario` (`cod_usu`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -188,20 +185,20 @@ UNLOCK TABLES;
 
 
 
--- DROP TABLE IF EXISTS `tb_medicamento_has_boleta`;
--- /*!40101 SET @saved_cs_client     = @@character_set_client */;
--- /*!50503 SET character_set_client = utf8mb4 */;
-/*
-CREATE TABLE `tb_medicamento_has_boleta` (
-  `num_bol` int NOT NULL,
-  `cod_med` int NOT NULL,
+ DROP TABLE IF EXISTS `tb_obra_has_pedido`;
+ /*!40101 SET @saved_cs_client     = @@character_set_client */;
+ /*!50503 SET character_set_client = utf8mb4 */;
+
+CREATE TABLE `tb_obra_has_pedido` (
+  `num_ped` int NOT NULL,
+  `cod_obr` int NOT NULL,
   `pre` double DEFAULT NULL,
-  KEY `fk6` (`num_bol`),
-  KEY `fk7` (`cod_med`),
-  CONSTRAINT `fk6` FOREIGN KEY (`num_bol`) REFERENCES `tb_boleta` (`num_bol`),
-  CONSTRAINT `fk7` FOREIGN KEY (`cod_med`) REFERENCES `tb_medicamento` (`cod_med`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;*/
--- /*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `fk6` (`num_ped`),
+  KEY `fk7` (`cod_obr`),
+  CONSTRAINT `fk6` FOREIGN KEY (`num_ped`) REFERENCES `tb_pedido` (`num_ped`),
+  CONSTRAINT `fk7` FOREIGN KEY (`cod_obr`) REFERENCES `tb_obra` (`cod_obr`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 
 --
@@ -234,7 +231,7 @@ CREATE TABLE `tb_rol` (
 
 LOCK TABLES `tb_rol` WRITE;
 /*!40000 ALTER TABLE `tb_rol` DISABLE KEYS */;
-INSERT INTO `tb_rol` VALUES (1,'ADMIN'),(2,'CAJA'),(3,'CONTABILIDAD');
+INSERT INTO `tb_rol` VALUES (1,'ADMIN'),(2,'VENDEDOR'),(3,'CLIENTE');
 /*!40000 ALTER TABLE `tb_rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
