@@ -43,6 +43,7 @@ public class WebSecConfig extends WebSecurityConfigurerAdapter {
     		.authorizeRequests()
     		.antMatchers("/obra/*").authenticated()
     		.antMatchers("/autor/*").authenticated()
+    		.antMatchers("/menu/*").authenticated()
     		.and().formLogin()
     		.loginPage("/login")
     		.defaultSuccessUrl("/menu",true);

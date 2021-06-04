@@ -11,7 +11,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <style type="text/css">
 body {
-  background: #eee;
+    background: url(assets/images/libreria.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
 }
 .wrapper {
   margin: 15%;
@@ -81,14 +84,14 @@ body {
 		right: -5px;
 	}
 	.modal-login .btn {
-		background: #428bca;
+		background: #242526;
 		border: none;
 		line-height: normal;
 		font-weight:bold;
 		width:40%;
 	}
 	.modal-login .btn:hover, .modal-login .btn:focus {
-		background: #428bca;
+		background: #242526;
 	}
 	.modal-login .modal-footer {
 		background: #ecf0f1;
@@ -110,7 +113,7 @@ body {
 	.modal-header{
 		margin:0px;
 		color:#fff;
-		background: #428bca;
+		background: #242526;
 		display: flex;
   		justify-content: center;
   		
@@ -121,6 +124,7 @@ body {
   		justify-content: center;
   		
 	}
+
 </style>
 </head>
 <body>
@@ -130,7 +134,7 @@ body {
 	<div class="modal-dialog modal-login">
 		<div class="modal-content">
 			<div class="modal-header">				
-				<h5 class="modal-title">INGRESAR MANTENIMIENTO</h5>
+				<h5 class="modal-title">INGRESAR LIBRERIA</h5>
 			</div>
 			<div class="modal-body">
 				<div class="alert alert-danger" th:if="${param.error}">Usuario y/o clave incorrectos</div>
@@ -144,10 +148,18 @@ body {
 						<i class="fa fa-lock"></i>
 						<input type="password" class="form-control" name="password" placeholder="Password" required="required">					
 					</div>
+					<div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input">Recuerdame<i class="input-helper"></i></label>
+                      </div>
 					<div class="pie">
 						<input type="submit" class="btn btn-primary btn-sm" aria-pressed="true"value="Iniciar">
 					</div>
 				</form>				
+				
+				
+				
+			
 				
 			</div>
 		</div>
