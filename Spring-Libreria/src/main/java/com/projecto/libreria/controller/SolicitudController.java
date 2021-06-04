@@ -49,7 +49,7 @@ public class SolicitudController {
 			ObraHasPedido ohp=new ObraHasPedido();
 			Obra o;
 			o=new Obra();
-			o.setCodObr(1);
+			o.setCodObr(2);
 			ohp.setObra(o);
 			ohp.setPrecio(555);
 			//adicionar "ohp" dentro "data"

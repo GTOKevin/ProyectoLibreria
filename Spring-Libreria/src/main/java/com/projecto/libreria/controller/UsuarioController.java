@@ -27,11 +27,11 @@ public class UsuarioController {
 		return "menu";
 	}
 	
-	@RequestMapping(value = "/pedido")
-	public String pedido() {
+	@RequestMapping(value = "/requerimiento")
+	public String requerimiento() {
 
 		
-		return "pedido";
+		return "requerimiento";
 	}
 	
 }
